@@ -4,8 +4,8 @@ import Nav from './Nav'
 import Home from './Home'
 import Gallery from './Gallery'
 import Contact from './Contact'
-import Cart from './Cart'
-import './style.css'
+// import Cart from './Cart'
+import './App.css'
 
 function App() {
     return (
@@ -14,8 +14,8 @@ function App() {
             <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route path="/gallery" component={Gallery}/>
-                <Route path="/contact" component={Contact}/>
-                <Route path="/cart" component={Cart}/>
+                {/* <Route path="/contact" component={Contact}/>
+                <Route path="/cart" component={Cart}/> */}
             </Switch>
         </div>
     )
