@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import Insta from './Photos/instagram.png'
-// import Facebook from './Photos/facebook.png'
+import Insta from './assets/instagram.svg'
+import Facebook from './assets/facebook.svg'
 import './App.css'
 
 function Nav() {
@@ -9,10 +9,10 @@ function Nav() {
         <div className='nav-container'>
             <span className="socials">
                 <a href="https://www.instagram.com/vitamnk/">
-                    {/* <img src={Insta} alt="instagram-logo"/> */}
+                    <img src={Insta} alt="instagram-logo"/>
                 </a>
                 <a href="https://www.facebook.com/kaya.poore">
-                    {/* <img src={Facebook} alt="facebook-logo"/> */}
+                    <img src={Facebook} alt="facebook-logo"/>
                 </a>
             </span>
             <span className='nav-logo'>

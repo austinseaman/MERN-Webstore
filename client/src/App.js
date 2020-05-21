@@ -3,8 +3,6 @@ import { Switch, Route } from 'react-router-dom'
 import Nav from './Nav'
 import Home from './Home'
 import Gallery from './Gallery'
-// import Contact from './Contact'
-// import Cart from './Cart'
 import './App.css'
 
 function App() {

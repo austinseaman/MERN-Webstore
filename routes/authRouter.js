@@ -25,9 +25,9 @@ authRouter.post("/signup", (req, res, next) => {
                 return next(err)
             }
             // generate a token
-            const token = jwt.sign(savedUser.toObject(), process.env.SECRET)
+            const token = jwt.sign(savedUser.withoutPassword(), process.env.SECRET)
             //send response that includes user info & token
-            return res.status(201).send({ user: savedUser.toObject(), token })
+            return res.status(201).send({ user: savedUser.withoutPassword(), token })
         })
     })
 })
@@ -47,14 +47,18 @@ authRouter.post("/login", (req, res, next) => {
         }
 
         // Does pw match saved pw?
-        if (user.password !== req.body.password) {
-            res.status(401)
-            return next(new Error("Username or Password es no bueno!"))
-        }
-
-        const token = jwt.sign(user.toObject(), process.env.SECRET)
-
-        return res.status(200).send({ user: user.toObject(), token })
+        user.checkPassword(req.body.password, (err, isMatch) => {
+            if(err) {
+                res.status(500)
+                return next(err)
+            }
+            if(!isMatch) {
+                res.status(401)
+                return next(new Error("Username or Password es no bueno!"))
+            }
+            const token = jwt.sign(user.withoutPassword(), process.env.SECRET)
+            return res.status(200).send({ user: user.withoutPassword(), token })
+        })     
     })
 })
 

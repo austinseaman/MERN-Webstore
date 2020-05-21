@@ -1,12 +1,9 @@
 import React from 'react'
-import './App.css'
 
-function Home() {
+export default function GalleryList() {
     return (
         <div>
             
         </div>
     )
 }
-
-export default Home
